@@ -9,30 +9,10 @@ ITEM_PIPELINES = {
     'Sina_spider.pipelines.NewsPipeline': 300,
 }
 
-SPLASH_URL = 'http://192.168.99.100:8050'
-
-# SPIDER_MIDDLEWARES = {
-#     'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
-# }
-
-# 下载中间件设置
 DOWNLOADER_MIDDLEWARES = {
-    'scrapy_splash.SplashCookiesMiddleware': 723,
-    'scrapy_splash.SplashMiddleware': 725,
-    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810
+    "Sina_spider.middleware.UserAgentMiddleware": 401,
+    "Sina_spider.middleware.CookiesMiddleware": 402,
 }
-
-# 设置去重过滤器
-#DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
-
-# 启用缓存系统
-#HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
-
-
-# DOWNLOADER_MIDDLEWARES = {
-#     "Sina_spider.middleware.UserAgentMiddleware": 401,
-#     "Sina_spider.middleware.CookiesMiddleware": 402,
-# }
 
 
 DOWNLOAD_DELAY = 2  # 间隔时间
